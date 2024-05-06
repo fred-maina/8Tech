@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8Tech Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:black;
+        }
+
+        header{
+            position: fixed;
+            width: 100%;
+            background: black;
+            padding-bottom: 20px;
+            z-index: 1000;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #ffa200;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar a:hover {
+            color: white;
+        }
+        .navbar a.active {
+            background-color: black;
+            color: white;
+            font-family: serif;
+            font-weight: bold;
+            border: 3px solid #ffa200;
+            border-radius: 10px;
+        }
+        .navbar .icon {
+            display: none;
+            color: white;
+        }
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+            .navbar.responsive {position: relative;}
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .footer-icons {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .footer-icons li {
+            padding: 0 10px;
+            text-align: center;
+        }
+        .footer-icons li a {
+            color: #ffa200;
+            text-decoration: none;
+            font-size: 24px;
+            display: block; /* Ensure that the text is below the icon */
+        }
+        .footer-icons li a .text {
+            font-size: 14px;
+            display: block; /* Display text on a new line */
+            color: #ccc; /* Lighter text color for the labels */
+        }
+
+        .search-container{
+            margin-top: 8vh;
+            text-align: center;
+        }
+        .search-box{
+            padding: 10px 15px;
+            width: 50%;
+            max-width: 500px;
+            border:none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-btn{
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #fff;
+            border:  2px solid #ffa200;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover{
+            background-color: #ffa200;
+            color: #000;
+        }
+
+       .logo img{
+            width:220px;
+            margin-top: 28vh;
+            margin-bottom: 8vh;
+        }
+
+        .scroll-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    margin: 0 20px;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+  }
+
+  .scroll-container img {
+    border-radius: 10px;
+    margin-right: 10px;
+    max-height: 100px; /* Adjust the height as needed */
+    transition: transform 0.5s ease;
+  }
+
+  .scroll-container img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+  }
+
+  .mySlides {
+    display: none;
+   
+}
+.mySlides img {
+  vertical-align: middle;
+  border-radius:5px;
+  margin: 5vh 0 1vh;
+      }
+
+.slideshow-container {
+    max-width: 700px;
+  position: relative;
+  margin: auto;
+  padding:10px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width:auto;
+  padding: 16px;
+  margin-top: -22px;
+  margin-left:20px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+ .prev {
+  left:-20px;
+}     
+      
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+  
+  spin {
+  color: #ffa200;
+  margin-right: 10px;
+  font-size: 20px;
+  font-family:serif;
+  animation: colorChange 3s infinite;
+}
+
+@keyframes colorChange {
+  0% { color: #ffa200; }
+  25% { color: #ff0000; } /* Red */
+  50% { color: #00ff00; } /* Green */
+  75% { color: #0000ff; } /* Blue */
+  100% { color: #ffa200; } /* Original color */
+}
+
+
+ 
+ 
+
+    </style>
+</head>
+<body>
+    <header>
+
+<div class="navbar" id="myNavbar">
+    <a href="#home" class="active">
+      <spin>|H|</spin>8TECH SOLUTIONS</a>
+    <a href="#about">Academics</a>
+    <a href="#contact">Networking Hub</a>
+    <a href="#services">Housing Platform</a>
+    <a href="#contact">Student Guidelines</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<div class="search-container">
+    <input type="text" class="search-box" placeholder="Search...">
+    <button class="search-btn">Search</button>
+</div>
+
+    </header>
+
+<div class="logo">
+    <center>
+        <img src="https://raw.githubusercontent.com/8-TECH/8TECH-/main/2techlogo.png">
+    </center>
+</div>
+
+<div class="scroll-container">
+    <!-- Add your images here -->
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techg.png" alt="Image 1">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techd.jpeg" alt="Image 2">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techb.png" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techf.png" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2teche.png" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techc.png" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techa.png" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techc.png" alt="Image 3">
+    <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techa.png" alt="Image 3">
+    <!-- Add more images as needed -->
+  </div>
+
+  <center>
+       
+    <div class="slideshow-container">
+
+<div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techg.png" style="width:100%">
+</div>
+
+<div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techd.jpeg" style="width:100%">
+</div>
+
+<div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techf.png" style="width:100%">
+</div>
+  
+  <div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techb.png" style="width:100%">
+</div>
+  
+  <div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2teche.png" style="width:100%">
+</div>
+  
+<div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techc.png" style="width:100%">
+</div>
+  
+  
+  <div class="mySlides">
+  <img src="https://raw.githubusercontent.com/8-TECH/8-TECH/main/2techa.png" style="width:100%">
+</div>
+  
+  
+
+  
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+
+      <center>
+
+        <div>
+            <P>
+                8Tech Solution
+            </P>
+        </div>
+
+<footer class="footer">
+    <ul class="footer-icons">
+        <li>
+            <a href="#club" title="Club">
+                <i class="fas fa-users"></i>
+                <span class="text">Clubs</span>
+            </a>
+        </li>
+        <li>
+            <a href="#society" title="Society">
+                <i class="worship-icon fas fa-pray"></i>
+                <span class="text">Religious Faiths</span>
+            </a>
+        </li>
+        <li>
+            <a href="#association" title="Association">
+                <i class="fas fa-handshake"></i>
+                <span class="text">Associations</span>
+            </a>
+        </li>
+        <li>
+            <a href="#news" title="News">
+                <i class="fas fa-newspaper"></i>
+                <span class="text">News</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myNavbar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+    } else {
+        x.className = "navbar";
+    }
+}
+
+document.querySelector('.search-btn').onclick = function() {
+    var query = document.querySelector('.search-box').value;
+    window.open('https://www.bing.com/search?q=' + encodeURIComponent(query));
+};
+
+document.querySelector('.scroll-container').addEventListener('wheel', function(e) {
+    if (e.deltaY > 0) this.scrollLeft += 100;
+    else this.scrollLeft -= 100;
+  });
+
+  var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+}
+
+// Auto-advance every 3 seconds (adjust as needed)
+setInterval(function() {
+  plusSlides(1);
+}, 3000); // Change the duration (in milliseconds) as desired
+</script>
+
+</body>
+</html>
